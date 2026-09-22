@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "rules_version": "claims-consistency-1.0",
+  "python": "3.12.14",
+  "packages": {
+    "pypdf": "6.19.0",
+    "reportlab": "4.5.1",
+    "pydantic": "2.13.5"
+  },
+  "source_sha256": {
+    "app\\claims\\__init__.py": "0789230af196c57ce0fe25a8aa8cf73763ecbb96555caa9148325be166fa752d",
+    "app\\claims\\checks.py": "0d62c7c77f1b0a61e1a4d4056d96532df36a00bc1f71ea1ec436f682d26a9d55",
+    "app\\claims\\extraction.py": "3aa6f13b9ecde9181e270afe54d2e97aa9e33f478ba2911503411a4f6f0e626a",
+    "app\\claims\\models.py": "ab9aefc9ea4866e4c9b8f7f2dbb209896fcbbe207f21768f9220b20a268c58fe",
+    "app\\claims\\samples.py": "93bcf244c047162ebfbb48f95cbe5f3e4eeaa83a5446fceb8e70163e5b6dd51f",
+    "app\\claims\\store.py": "4df6fdf75a5ccb1f65447c8b2ad7a851b77eae763fe69d23a0fc5c2e858388f5"
+  },
+  "mode": "deterministic; no LLM/OCR",
+  "provider_calls": 0,
+  "api_cost": "not applicable; no provider used",
+  "limitations": "Three authored fictional regression scenarios; not an accuracy estimate for arbitrary PDFs or insurance decisions.",
+  "results": [
+    {
+      "case": "clean",
+      "fictional": true,
+      "expected": [
+        "consistent",
+        "consistent",
+        "consistent",
+        "consistent",
+        "consistent"
+      ],
+      "actual": [
+        "consistent",
+        "consistent",
+        "consistent",
+        "consistent",
+        "consistent"
+      ],
+      "passed": true,
+      "failures": [],
+      "pdf_sha256": {
+        "policy": "e8787ccc0e48f81a79124377bf27735465df36a4299a5831c0a69dea87c594a4",
+        "claim": "1e809166e4e47e5db06f7aebc7d9860ee1128f8bbac51124b382cddc299aca9a",
+        "invoice": "3f44d48d54ce2c493af72708b267738ce03427d2ee3840f435c65354e991aa14"
+      },
+      "latency_ms": 27.644
+    },
+    {
+      "case": "conflicting",
+      "fictional": true,
+      "expected": [
+        "conflict",
+        "conflict",
+        "conflict",
+        "consistent",
+        "conflict"
+      ],
+      "actual": [
+        "conflict",
+        "conflict",
+        "conflict",
+        "consistent",
+        "conflict"
+      ],
+      "passed": true,
+      "failures": [],
+      "pdf_sha256": {
+        "policy": "e8787ccc0e48f81a79124377bf27735465df36a4299a5831c0a69dea87c594a4",
+        "claim": "4232b3013c651f37013093d5c8a634c15b5c667b0086f6bbf862d7ac43166d1e",
+        "invoice": "d18e2ac2928a504a450eb7e42bdabc404b014bb27a217cc618ca5d500be4c7c8"
+      },
+      "latency_ms": 20.559
+    },
+    {
+      "case": "missing",
+      "fictional": true,
+      "expected": [
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "actual": [
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "passed": true,
+      "failures": [],
+      "pdf_sha256": {
+        "policy": "e8787ccc0e48f81a79124377bf27735465df36a4299a5831c0a69dea87c594a4",
+        "claim": "e422c0f3a44da7ebcda0d489b564529c9bafc1641a81fe3db6086f97875be49c",
+        "invoice": null
+      },
+      "latency_ms": 9.411
+    }
+  ],
+  "passed": 3,
+  "total": 3
+}
